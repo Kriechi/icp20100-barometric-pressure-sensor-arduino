@@ -1,0 +1,13 @@
+{
+    "name": "ICP-20100",
+    "description": "Arduino library for ICP-20100 barometric pressure sensor",
+    "keywords": "ICP-20100, ICP20100, pressure, barometer, barometric, bar, sensor",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Kriechi/icp20100-barometric-pressure-sensor-arduino.git"
+    },
+    "version": "1.0.1",
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "*"
+}
