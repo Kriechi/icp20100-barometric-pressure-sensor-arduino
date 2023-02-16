@@ -6,7 +6,7 @@
         "type": "git",
         "url": "https://github.com/Kriechi/icp20100-barometric-pressure-sensor-arduino.git"
     },
-    "version": "1.0.1",
+    "version": "1.0.2",
     "license": "MIT",
     "frameworks": "arduino",
     "platforms": "*"

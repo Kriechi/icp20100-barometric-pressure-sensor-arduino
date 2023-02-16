@@ -42,21 +42,21 @@ void setup()
 
 void loop()
 {
+  delay(1000); // let the measurement samples accumulate in the sensor
+
   uint8_t count;
   float pressure_values[16];    // there are up to 16 samples to be read
   float temperature_values[16]; // there are up to 16 samples to be read
   if (!icp20100.read(&count, pressure_values, temperature_values))
   {
-    Serial.println("ICP20100: failed to read measurement values!");
-    delay(500);
+    Serial.println("ICP20100: no samples available or read failure!");
+    delay(1000);
     return;
   }
   if (count > 0)
   {
-    Serial.printf("Most recent Pressure: %d, Temperature: %0.2f\n", pressure_values[count], temperature_values[count]);
+    Serial.printf("Received %d samples - most recent Pressure: %0.2f kPa, Temperature: %0.2f Celsius\n", count, pressure_values[count-1], temperature_values[count-1]);
   }
-
-  delay(500);
 }
 ```
 
