@@ -194,7 +194,7 @@ bool ICP20100::read(uint8_t *count, float *pressure_values, float *temperature_v
         for (uint8_t i = 0; i < *count; i++)
         {
             // 20-bit pressure value
-            int32_t rawPressure = (int32_t)(((data[position + 2] & 0x0F) << 16) | ((data[position + 1]) << 8) | ((data[position] & 0xFF)));
+            int32_t rawPressure = (int32_t)(((data[position + 2] & 0x0F) << 16) | ((data[position + 1]) << 8) | data[position]);
             if (rawPressure & 0x080000)
             {
                 rawPressure |= 0xFFF00000;
@@ -203,7 +203,7 @@ bool ICP20100::read(uint8_t *count, float *pressure_values, float *temperature_v
             position += 3;
 
             // 20-bit temperature value
-            int32_t rawTemperature = (int32_t)(((data[position + 2] & 0x0F) << 16) | ((data[position + 1]) << 8) | ((data[position] & 0xFF)));
+            int32_t rawTemperature = (int32_t)(((data[position + 2] & 0x0F) << 16) | ((data[position + 1]) << 8) | data[position]);
             if (rawTemperature & 0x080000)
             {
                 rawTemperature |= 0xFFF00000;
